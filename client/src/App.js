@@ -1,6 +1,6 @@
 import React from 'react';
 import ListForm from './components/ListForm';
-import GroceryList from './components/GroceryList'
+// import GroceryList from './components/GroceryList'
 
 class App extends React.Component {
   state = { list: [] }
@@ -29,11 +29,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <ListForm addItem={this.addItem} />
-        <GroceryList
-          list={this.state.list}
-          updateItem={this.updateItem}
-          deleteItem={this.deleteItem}
-        />
+        
+        
       </div>
     );
   }
