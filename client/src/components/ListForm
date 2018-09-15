@@ -1,0 +1,7 @@
+import React from 'react';
+
+class ListForm extends React.Component {
+state = { name: '' }
+}
+
+export default Listform;
