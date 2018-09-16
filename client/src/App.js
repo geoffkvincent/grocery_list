@@ -6,26 +6,47 @@ class App extends React.Component {
   state = { items: [] }
 
   componentDidMount() {
-
+    fetch('/api/items')
+      .then ( res => res.json() )
+      .then ( items => this.setState({ items }) )
   }
 
   addItem = (name) => {
-    const { items } = this.state;
-    const id = Math.floor((1 + Math.random()) * 0x1000).toString()
-    this.setState({ items: [ ...items, { id, name }] });
-  }
-
-  updateItem = (name) => {
-
+    const item = { name };
+    fetch('/api/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(item)
+    }).then( res => res.json() )
+    .then( item => {
+      const { items } = this.state;
+      this.setState({ items: [...items, item] });
+    })
   }
 
   updateItem = (id) => {
+    fetch(`/api/items/${id}`, { method: 'PUT' })
+      .then(res => res.json() )
+      .then( item => {
+        const items = this.state.items.map( f => {
+          if (f.id === id)
+            return item
+          return f;
+        });
 
+        this.setState({ items });
+      })
   }
 
   deleteItem = (id) => {
-  const { items } = this.state;
-  this.setState({ items: items.filter( t => t.id !==id) })
+    fetch(`api/items/${id}`, { method: 'DELETE' })
+      .then( () => {
+        const { items } = this.state;
+        this.setState({ items: items.filter( f => f.id !== id ) })
+      })
   }
 
   render() {

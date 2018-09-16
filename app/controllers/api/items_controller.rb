@@ -6,9 +6,9 @@ class Api::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     if item.save
-      render json
+      render json: item
     else
-      render json { errors: item.errors }, status: 400
+      render json: { errors: item.errors }, status: 400
     end
   end
 
