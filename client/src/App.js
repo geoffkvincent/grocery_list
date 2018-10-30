@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import axios from 'axios'
 import GroceryList from './components/GroceryList'
 
@@ -11,10 +11,11 @@ class App extends React.Component {
   }
 
   render() {
+    const {items} = this.state
     return (
-      <Fragment>
-        <GroceryList />
-      </Fragment>
+      <div>
+        <GroceryList items={items}/>
+      </div>
     )
   }
 
