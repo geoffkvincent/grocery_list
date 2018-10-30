@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import axios from 'axios'
+import GroceryList from './components/GroceryList'
 
 class App extends React.Component {
   state= {items: []}
@@ -11,7 +12,9 @@ class App extends React.Component {
 
   render() {
     return (
-      null
+      <Fragment>
+        <GroceryList />
+      </Fragment>
     )
   }
 
