@@ -19,6 +19,14 @@ class App extends React.Component {
       })
   }
 
+  updateItem = () => {
+
+  }
+
+  deleteItem = () => {
+    
+  }
+
   render() {
     const {items} = this.state
     return (
