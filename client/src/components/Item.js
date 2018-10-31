@@ -1,7 +1,14 @@
 import React from 'react'
 
+const styles = {
+  item: {cursor: 'pointer'}
+}
+
 const Item = ({name}) => (
-  <li>
+  <li
+    style={styles.item}
+    onClick=
+  >
     {name}
   </li>
 )
