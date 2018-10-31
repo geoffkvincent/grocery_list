@@ -5,9 +5,10 @@ const GroceryList = ({items}) => (
   <div>
     <ul>
       { items.map(item =>
-          <Item key={item.id}>
-            {item.name}
-          </Item>
+          <Item 
+          key={item.id}
+          {...item}
+          />
         )
       }
     </ul>

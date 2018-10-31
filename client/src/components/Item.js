@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Item = () => {
+const Item = ({name}) => (
   <li>
-    
+    {name}
   </li>
-}
+)
 
 export default Item

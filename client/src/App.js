@@ -20,8 +20,8 @@ class App extends React.Component {
   }
 
   updateItem = () => {
-    const {items} = this.state
-    axios.put(`/api/items/${item.id}`)
+    
+   
   }
 
   deleteItem = () => {
