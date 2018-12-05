@@ -19,21 +19,36 @@ class App extends React.Component {
       })
   }
 
-  updateItem = () => {
-    
-   
+  handleClick = (id) => {
+    const { items } = this.state
+    this.setState({
+      items: items.map( item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            complete: !item.complete
+          }
+        }
+
+        return item
+      })
+    })
+
   }
 
-  deleteItem = () => {
+  updateItem = () => { 
+  }
 
+  deleteItem = (id) => {
   }
 
   render() {
     const {items} = this.state
     return (
-      <div>
-        <ListForm addItem={this.addItem}/>
-        <GroceryList items={items}/>
+      <div className='app'>
+        <h2 className="header">Grocery List</h2>
+        <ListForm addItem={this.addItem} />
+        <GroceryList items={items} todoClick={this.handleClick}/>
       </div>
     )
   }

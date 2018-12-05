@@ -1,13 +1,14 @@
 import React from 'react'
-import Item from './Item'
 
-const GroceryList = ({items}) => (
-  <div>
+
+const GroceryList = ({items, todoClick}) => (
+  <div className="list">
     <ul>
       { items.map(item =>
           <Item 
           key={item.id}
           {...item}
+          todoClick={todoClick}
           />
         )
       }

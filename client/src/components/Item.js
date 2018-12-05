@@ -1,15 +1,20 @@
 import React from 'react'
 
 const styles = {
-  item: {cursor: 'pointer'}
+  item: { cursor: 'pointer' },
+  complete: { color: 'grey', textDecoration: 'line-through' }
 }
 
-const Item = ({name}) => (
+const Item = ({name, id, complete, todoClick}) => (
   <li
-    style={styles.item}
-    onClick=
+    style={ complete ? {...styles.item, ...styles.complete } : styles.item }
+    onClick={() => todoClick(id)}
+    className="list-items"
   >
     {name}
+    <div className="delete">
+      <h4></h4> 
+    </div>
   </li>
 )
 
