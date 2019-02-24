@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item'
 
-const GroceryList = ({items, todoClick}) => (
+const GroceryList = ({items, todoClick, deleteItem}) => (
   <div className="list">
     <ul>
       { items.map(item =>
@@ -9,6 +9,7 @@ const GroceryList = ({items, todoClick}) => (
           key={item.id}
           {...item}
           todoClick={todoClick}
+          deleteItem={deleteItem}
           />
           )
         }

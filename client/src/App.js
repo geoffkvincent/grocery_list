@@ -40,6 +40,7 @@ class App extends React.Component {
   }
 
   deleteItem = (id) => {
+    debugger
   }
 
   render() {
