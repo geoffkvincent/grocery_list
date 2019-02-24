@@ -40,8 +40,11 @@ class App extends React.Component {
   }
 
   deleteItem = (id) => {
+    const { items } = this.state
     axios.delete(`/api/items/${id}`)
-      .then
+      .then( () => {
+        this.setState({ items: items.filter( i => i.id != id ) })
+      })
   }
 
   render() {
