@@ -36,7 +36,7 @@ class App extends React.Component {
 
   }
 
-  updateItem = () => { 
+  updateItem = (id) => { 
   }
 
   deleteItem = (id) => {
@@ -57,6 +57,7 @@ class App extends React.Component {
           items={items} 
           todoClick={this.handleClick}
           deleteItem={this.deleteItem}
+          updateItem={this.updateItem}
         />
       </div>
     )
