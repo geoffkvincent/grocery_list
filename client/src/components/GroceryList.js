@@ -10,8 +10,8 @@ const GroceryList = ({items, todoClick}) => (
           {...item}
           todoClick={todoClick}
           />
-        )
-      }
+          )
+        }
     </ul>
   </div>
 )

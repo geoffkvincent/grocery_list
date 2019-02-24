@@ -13,7 +13,7 @@ const Item = ({name, id, complete, todoClick}) => (
   >
     {name}
     <div className="delete">
-      <h4></h4> 
+      <h4>X</h4> 
     </div>
   </li>
 )
