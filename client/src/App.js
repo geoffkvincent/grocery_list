@@ -48,7 +48,11 @@ class App extends React.Component {
       <div className='app'>
         <h2 className="header">Grocery List</h2>
         <ListForm addItem={this.addItem} />
-        <GroceryList items={items} todoClick={this.handleClick}/>
+        <GroceryList 
+          items={items} 
+          todoClick={this.handleClick}
+          deleteItem={this.deleteItem}
+        />
       </div>
     )
   }
