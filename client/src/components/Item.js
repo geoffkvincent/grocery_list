@@ -14,8 +14,18 @@ const Item = ({name, id, complete, todoClick, deleteItem, updateItem}) => (
     >
       {name} 
     <div>
-      <a onClick={() => deleteItem(id)} class="waves-effect waves-light btn">Delete</a>
-      <a onClick={() => updateItem(id)} class="waves-effect waves-light btn">Edit</a>
+      <a 
+        onClick={() => deleteItem(id)} 
+        class="waves-effect waves-light btn"
+      >
+        Delete
+      </a>
+      <a 
+        onClick={() => updateItem(id)} 
+        class="waves-effect waves-light btn"
+      >
+        Edit
+      </a>
     </div>
     </li>
   </div>
