@@ -40,7 +40,8 @@ class App extends React.Component {
   }
 
   deleteItem = (id) => {
-    debugger
+    axios.delete(`/api/items/${id}`)
+      .then
   }
 
   render() {

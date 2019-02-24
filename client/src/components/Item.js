@@ -14,7 +14,7 @@ const Item = ({name, id, complete, todoClick, deleteItem}) => (
     >
       {name} 
     <div>
-      <a onClick={deleteItem} class="waves-effect waves-light btn">Delete</a>
+      <a onClick={() => deleteItem(id)} class="waves-effect waves-light btn">Delete</a>
     </div>
     </li>
   </div>
