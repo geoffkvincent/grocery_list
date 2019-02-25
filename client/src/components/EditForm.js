@@ -14,8 +14,9 @@ class EditForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const {name, itemToEdit} = this.state
-    this.props.updateItem(name, itemToEdit.id)
+    const {itemToEdit, name} = this.state
+    const item = { name, id: itemToEdit.id }
+    this.props.updateItem(item)
     this.setState({name: ''})
   }
 

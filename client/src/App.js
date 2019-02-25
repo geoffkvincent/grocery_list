@@ -45,16 +45,35 @@ class App extends React.Component {
       }) 
   }
 
-  updateItem = (name, id) => { 
-    axios.put(`/api/items/${id}`, { name } )
-      .then( ({ data }) => this.setState({ items: [data, ...items] }) )
+  // updateItem = (name, id) => { 
+  //   debugger
+  //   const {items, editing} = this.state
+  //   axios.put(`/api/items/${id}`, { name } )
+  //     .then( ({ data }) => this.setState({ 
+  //       items: [data, ...items],
+  //       editing: !editing,
+  //       editItem: {} 
+  //     }))
+  // }
+
+  updateItem = (item) => { 
+    const {editing} = this.state
+    axios.put(`/api/items/${item.id}`, {item})
+      .then( ({data}) => {
+        const items = this.state.items.map( i => {
+          if (i.id === item.id)
+            return data
+          return i
+        })
+        this.setState({ items, editing: !editing, editItem: {} })
+      })
   }
 
   deleteItem = (id) => {
     const { items } = this.state
     axios.delete(`/api/items/${id}`)
       .then( () => {
-        this.setState({ items: items.filter( i => i.id === id ) })
+        this.setState({ items: items.filter( i => i.id != id ) })
       })
   }
 
