@@ -13,21 +13,21 @@ const Item = ({name, id, complete, todoClick, deleteItem, toggleEdit}) => (
       className="list-items"
     >
       {name} 
-    <div>
+    </li>
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
       <a 
         onClick={() => deleteItem(id)} 
-        class="waves-effect waves-light btn"
+        class="waves-effect red lighten-1 btn-small"
       >
         Delete
       </a>
       <a 
         onClick={() => toggleEdit(id)} 
-        class="waves-effect waves-light btn"
+        class="waves-effect purple lighten-1 btn-small"
       >
         Edit
       </a>
     </div>
-    </li>
   </div>
 )
 
