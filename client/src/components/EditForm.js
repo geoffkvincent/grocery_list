@@ -4,7 +4,7 @@ class EditForm extends React.Component {
   state = { name: '', itemToEdit: {} }
 
   componentDidMount(){
-    const { editItem, itemToEdit }  = this.props
+    const { editItem }  = this.props
     this.setState({ name: editItem.name, itemToEdit: editItem })
   }
 
@@ -14,7 +14,8 @@ class EditForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.updateItem(this.state.name)
+    const {name, itemToEdit} = this.state
+    this.props.updateItem(name, itemToEdit.id)
     this.setState({name: ''})
   }
 
