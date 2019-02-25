@@ -46,7 +46,8 @@ class App extends React.Component {
   }
 
   updateItem = (name, id) => { 
-    
+    axios.put(`/api/items/${id}`, { name } )
+      .then( ({ data }) => this.setState({ items: [data, ...items] }) )
   }
 
   deleteItem = (id) => {
