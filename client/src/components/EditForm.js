@@ -3,6 +3,11 @@ import React from 'react'
 class EditForm extends React.Component {
   state = { name: ''}
 
+  componentDidMount(){
+    debugger
+    this.setState({ name: this.props.editItem})
+  }
+
   handleChange = (e) => {
     this.setState({ name: e.target.value})
   }
@@ -14,6 +19,7 @@ class EditForm extends React.Component {
   }
 
   render(){
+    const { name } = this.state
     return(
       <form onSubmit={this.handleSubmit}>
         <input
