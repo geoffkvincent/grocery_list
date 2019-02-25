@@ -65,6 +65,7 @@ class App extends React.Component {
         { editing ?
           <EditForm 
             editItem={editItem}
+            updateItem={this.updateItem}
           />
         :
           <ListForm 

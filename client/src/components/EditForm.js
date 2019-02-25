@@ -4,13 +4,12 @@ class EditForm extends React.Component {
   state = { name: '' }
 
   componentDidMount(){
-    debugger
     this.setState({ name: this.props.editItem.name })
   }
 
-  // handleChange = (e) => {
-  //   this.setState({ name: e.target.value})
-  // }
+  handleChange = (e) => {
+    this.setState({ name: e.target.value})
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
