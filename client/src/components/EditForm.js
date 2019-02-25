@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios';
 
-class ListForm extends React.Component {
-  state={ name: '' }
+class EditForm extends React.Component {
+  state = { name: ''}
 
   handleChange = (e) => {
     this.setState({ name: e.target.value})
@@ -10,13 +9,12 @@ class ListForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addItem(this.state.name)
+    this.props.updateItem(this.state.name)
     this.setState({name: ''})
   }
 
-  render() {
-    const {name} = this.state
-    return (
+  render(){
+    return(
       <form onSubmit={this.handleSubmit}>
         <input
           value={name}
@@ -29,4 +27,4 @@ class ListForm extends React.Component {
   }
 }
 
-export default ListForm
+export default EditForm
