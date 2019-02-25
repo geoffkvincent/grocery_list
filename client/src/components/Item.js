@@ -5,7 +5,7 @@ const styles = {
   complete: { color: 'grey', textDecoration: 'line-through' }
 }
 
-const Item = ({name, id, complete, todoClick, deleteItem, updateItem}) => (
+const Item = ({name, id, complete, todoClick, deleteItem, toggleEdit}) => (
   <div style={{width: '500px'}}>
     <li
       style={ complete ? {...styles.item, ...styles.complete } : styles.item }
@@ -21,7 +21,7 @@ const Item = ({name, id, complete, todoClick, deleteItem, updateItem}) => (
         Delete
       </a>
       <a 
-        onClick={() => updateItem(id)} 
+        onClick={() => toggleEdit(id)} 
         class="waves-effect waves-light btn"
       >
         Edit

@@ -1,7 +1,13 @@
 import React from 'react'
+import axios from 'axios';
 
 class ListForm extends React.Component {
-  state={name: ''}
+  state={ name: '' }
+
+  componentDidMount(){
+    if (this.props.editing)
+    axios.get
+  }
 
   handleChange = (e) => {
     this.setState({ name: e.target.value})

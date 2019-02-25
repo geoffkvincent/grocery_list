@@ -4,7 +4,7 @@ import GroceryList from './components/GroceryList'
 import ListForm from './components/ListForm'
 
 class App extends React.Component {
-  state= {items: []}
+  state= {items: [], editing: false, editItem: '' }
   
   componentDidMount() {
     axios.get('/api/items')
@@ -36,7 +36,18 @@ class App extends React.Component {
 
   }
 
+  toggleEdit = (id) => this.setState({ editing: true }, () => {
+    this.editSelect(id)
+  })
+
+  editSelect = (id) => {
+    const { items, editItem } = this.state
+    this.setState({ editItem: items.filter( item => item.id === id ) })
+     debugger
+  }
+
   updateItem = (id) => { 
+    
   }
 
   deleteItem = (id) => {
@@ -52,12 +63,15 @@ class App extends React.Component {
     return (
       <div className='app'>
         <h2 className="header">Grocery List</h2>
-        <ListForm addItem={this.addItem} />
+        <ListForm 
+          addItem={this.addItem} 
+          editing={this.state.editing}
+        />
         <GroceryList 
           items={items} 
           todoClick={this.handleClick}
           deleteItem={this.deleteItem}
-          updateItem={this.updateItem}
+          toggleEdit={this.toggleEdit}
         />
       </div>
     )
