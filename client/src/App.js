@@ -4,7 +4,7 @@ import GroceryList from './components/GroceryList'
 import ListForm from './components/ListForm'
 
 class App extends React.Component {
-  state= {items: [], editing: false, editItem: '' }
+  state= {items: [], editing: false, editItem: {} }
   
   componentDidMount() {
     axios.get('/api/items')
