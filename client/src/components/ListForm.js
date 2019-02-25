@@ -5,8 +5,10 @@ class ListForm extends React.Component {
   state={ name: '' }
 
   componentDidMount(){
-    if (this.props.editing)
-    axios.get
+    const {editing, editItem} = this.props
+    if (editing) {
+      this.setState({ name: editItem })
+    }
   }
 
   handleChange = (e) => {

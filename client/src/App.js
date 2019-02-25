@@ -40,10 +40,14 @@ class App extends React.Component {
     this.editSelect(id)
   })
 
+  
   editSelect = (id) => {
-    const { items, editItem } = this.state
-    this.setState({ editItem: items.filter( item => item.id === id ) })
-     debugger
+    const { items } = this.state
+      items.map( item => {
+        if (item.id === id ) {
+          this.setState({ editItem: item })
+        }
+      }) 
   }
 
   updateItem = (id) => { 
@@ -54,18 +58,19 @@ class App extends React.Component {
     const { items } = this.state
     axios.delete(`/api/items/${id}`)
       .then( () => {
-        this.setState({ items: items.filter( i => i.id != id ) })
+        this.setState({ items: items.filter( i => i.id === id ) })
       })
   }
 
   render() {
-    const {items} = this.state
+    const {items, editItem} = this.state
     return (
       <div className='app'>
         <h2 className="header">Grocery List</h2>
         <ListForm 
           addItem={this.addItem} 
           editing={this.state.editing}
+          editItem={editItem}
         />
         <GroceryList 
           items={items} 
