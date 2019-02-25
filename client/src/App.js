@@ -45,7 +45,7 @@ class App extends React.Component {
       }) 
   }
 
-  updateItem = (id) => { 
+  updateItem = (name, id) => { 
     
   }
 

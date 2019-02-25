@@ -1,10 +1,11 @@
 import React from 'react'
 
 class EditForm extends React.Component {
-  state = { name: '' }
+  state = { name: '', itemToEdit: {} }
 
   componentDidMount(){
-    this.setState({ name: this.props.editItem.name })
+    const { editItem, itemToEdit }  = this.props
+    this.setState({ name: editItem.name, itemToEdit: editItem })
   }
 
   handleChange = (e) => {
