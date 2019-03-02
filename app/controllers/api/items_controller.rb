@@ -14,7 +14,7 @@ class Api::ItemsController < ApplicationController
 
   def update 
     item = Item.find(params[:id])
-    item.update(complete: !item.complete)
+    item.update(item_params)
     render json: item
   end
 
